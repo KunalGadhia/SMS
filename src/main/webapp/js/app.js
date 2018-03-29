@@ -40,8 +40,8 @@ angular.module("sms", [
 //    'kuber.states.reviews',
 
     // include controllers and states
-    'sms.states',    
-    'sms.states.auth',    
+    'sms.states',
+    'sms.states.auth',
 
     //include user states
 //    'kuber.states.user.main',
@@ -58,7 +58,7 @@ angular.module("sms", [
 
                 AuthFactory.refresh().then(function (currentUser) {
                 }, function (reason) {
-
+                    console.log("Something in App JS ");
                     $location.path("login");
                 });
 

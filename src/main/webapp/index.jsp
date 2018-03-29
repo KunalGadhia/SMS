@@ -56,60 +56,90 @@
         <!-- CSS Files -->
 
         <!-- Theme JS & CSS Libraries -->
-        <!--   Core JS Files   -->
-        <script src="${pageContext.request.contextPath}/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-        <!--  Charts Plugin -->
-        <script src="${pageContext.request.contextPath}/assets/js/chartist.min.js"></script>
-
-        <!--  Notifications Plugin    -->
-        <script src="${pageContext.request.contextPath}/assets/js/bootstrap-notify.js"></script>
-
-        <!--  Google Maps Plugin    -->
-        <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
-
-        <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-        <script src="${pageContext.request.contextPath}/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-        <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<!--        <script src="${pageContext.request.contextPath}/assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/core/popper.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+          Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ 
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/bootstrap-switch.js"></script>
+          Google Maps Plugin    
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+          Chartist Plugin  
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/chartist.min.js"></script>
+          Notifications Plugin    
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/bootstrap-notify.js"></script>
+         Control Center for Light Bootstrap Dashboard: scripts for the example pages etc 
+        <script src="${pageContext.request.contextPath}/assets/js/light-bootstrap-dashboard.js?v=2.0.1" type="text/javascript"></script>
+         Light Bootstrap Dashboard DEMO methods, don't include it in your project! 
         <script src="${pageContext.request.contextPath}/assets/js/demo.js"></script>
-
         <script type="text/javascript">
-            $(document).ready(function () {
-
-            demo.initChartist();
-            $.notify({
-            icon: 'pe-7s-gift',
-                    message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            }, {
-            type: 'info',
-                    timer: 4000
+            $(document).ready(function() {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+            demo.showNotification();
             });
-            });
-        </script>
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-        <meta name="viewport" content="width=device-width" />
-
-        <!-- Bootstrap core CSS     -->
+        </script>-->
+        <!--           Core JS Files   
+                <script src="${pageContext.request.contextPath}/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+                <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js" type="text/javascript"></script>
+        
+                  Charts Plugin 
+                <script src="${pageContext.request.contextPath}/assets/js/chartist.min.js"></script>
+        
+                  Notifications Plugin    
+                <script src="${pageContext.request.contextPath}/assets/js/bootstrap-notify.js"></script>
+        
+                  Google Maps Plugin    
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        
+                 Light Bootstrap Table Core javascript and methods for Demo purpose 
+                <script src="${pageContext.request.contextPath}/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+        
+                 Light Bootstrap Table DEMO methods, don't include it in your project! 
+                <script src="${pageContext.request.contextPath}/assets/js/demo.js"></script>
+        
+                <script type="text/javascript">
+                    $(document).ready(function () {
+        
+                    demo.initChartist();
+                    $.notify({
+                    icon: 'pe-7s-gift',
+                            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+        
+                    }, {
+                    type: 'info',
+                            timer: 4000
+                    });
+                    });
+                </script>
+                <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+                <meta name="viewport" content="width=device-width" />
+        
+                 Bootstrap core CSS     
+                <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" />
+        
+                 Animation library for notifications   
+                <link href="${pageContext.request.contextPath}/assets/css/animate.min.css" rel="stylesheet"/>
+        
+                  Light Bootstrap Table core CSS    
+                <link href="${pageContext.request.contextPath}/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+        
+        
+                  CSS for Demo Purpose, don't include it in your project     
+                <link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />
+        -->
+<!--        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+             Fonts and icons     
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+         CSS Files 
         <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" />
-
-        <!-- Animation library for notifications   -->
-        <link href="${pageContext.request.contextPath}/assets/css/animate.min.css" rel="stylesheet"/>
-
-        <!--  Light Bootstrap Table core CSS    -->
-        <link href="${pageContext.request.contextPath}/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-
-
-        <!--  CSS for Demo Purpose, don't include it in your project     -->
-        <link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />
-
-
-        <!--     Fonts and icons     -->
+        <link href="${pageContext.request.contextPath}/assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+         CSS Just for demo purpose, don't include it in your project 
+        <link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />-->
+<!--             Fonts and icons     
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-        <link href="${pageContext.request.contextPath}/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />-->
 
         <!-- Icons & Images -->
         <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/icons/spacew.ico">
@@ -132,11 +162,11 @@
         <script src="${pageContext.request.contextPath}/js/states.js"></script>
 
         <!--states-->        
-        <!--<script src="${pageContext.request.contextPath}/js/states/admin.js"></script>-->
+        <script src="${pageContext.request.contextPath}/js/states/admin/admin_main.js"></script>
         <!--<script src="${pageContext.request.contextPath}/js/states/user.js"></script>-->        
 
         <!--Services-->
-        <!--<script src="${pageContext.request.contextPath}/js/services/user_service.js"></script>-->
+        <script src="${pageContext.request.contextPath}/js/services/user_service.js"></script>
 
     </head>
     <body style="font-family: 'Roboto', sans-serif;">

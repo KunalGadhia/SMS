@@ -20,17 +20,17 @@ angular.module("sms.states", ['ngAnimate', 'ui.bootstrap'])
 //                'templateUrl': templateRoot + '/register.html',
 //                'controller': 'RegisterController'
 //            });
-            $stateProvider.state('main', {
-                'url': '/main',
-                'templateUrl': templateRoot + '/main.html'
-            });
-            $stateProvider.state('main.masters', {
-                'url': '/masters',
-                'templateUrl': templateRoot + '/masters/menu.html'
-            });
-            $sceDelegateProvider.resourceUrlWhitelist([
-                'https://www.youtube.com/embed/**'
-            ]);
+//            $stateProvider.state('main', {
+//                'url': '/main',
+//                'templateUrl': templateRoot + '/main.html'
+//            });
+//            $stateProvider.state('main.masters', {
+//                'url': '/masters',
+//                'templateUrl': templateRoot + '/masters/menu.html'
+//            });
+//            $sceDelegateProvider.resourceUrlWhitelist([
+//                'https://www.youtube.com/embed/**'
+//            ]);
         })
         .controller('LoginController', function ($scope, $state, $stateParams, $timeout, UserService, AuthFactory) {
             console.log("Coming to Login COntroller");
@@ -71,7 +71,7 @@ angular.module("sms.states", ['ngAnimate', 'ui.bootstrap'])
                 });
             };            
         })
-        .controller('SignupController', function (UserService, $scope, $state, $stateParams, $timeout, UserService, AuthFactory) {
+        .controller('SignupController', function (UserService, $scope, $state, $stateParams, $timeout, AuthFactory) {
 
         });
 
