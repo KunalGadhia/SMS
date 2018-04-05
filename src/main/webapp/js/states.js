@@ -41,25 +41,25 @@ angular.module("sms.states", ['ngAnimate', 'ui.bootstrap'])
             $timeout(function () {
                 $scope.message = false;
             }, 3000);
-            $scope.login = function (username, password) {                
+            $scope.login = function (username, password) {
                 UserService.login({
                     'username': username,
                     'password': password
-                }, function (data) {
-                    console.log("Step 1 Cleared");
+                }, function (data) {                    
                     AuthFactory.refresh();
                     UserService.findByUsername({
                         'username': data.username
                     }, function (data) {
-                         if (data.role === "ROLE_ADMIN") {
+                        if (data.role === "ROLE_ADMIN") {
+                            console.log("Admin Login");
                             $state.go("admin");
                         } else if (data.role === "ROLE_SUPERVISOR") {
                             $state.go("admin");
                         } else if (data.role === "ROLE_TEACHER") {
                             $state.go("admin");
-                        }else if(data.role === "ROLE_STUDENT"){
+                        } else if (data.role === "ROLE_STUDENT") {
                             $state.go("admin");
-                        }else if(data.role === "ROLE_PARENT"){
+                        } else if (data.role === "ROLE_PARENT") {
                             $state.go("admin");
                         }
                     });
@@ -69,7 +69,7 @@ angular.module("sms.states", ['ngAnimate', 'ui.bootstrap'])
                     $scope.username = "";
                     $scope.password = "";
                 });
-            };            
+            };
         })
         .controller('SignupController', function (UserService, $scope, $state, $stateParams, $timeout, AuthFactory) {
 

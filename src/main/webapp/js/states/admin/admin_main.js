@@ -13,7 +13,9 @@ angular.module("sms.states.admin.main", [])
 
         })
         .controller('AdminMainController', function ($scope, $stateParams, $state, paginationLimit, UserService) {
+            console.log("Admin Main Controller");
             $scope.logout = function () {
+                console.log("Inside Logout");
                 UserService.logout({}, function () {
                     $state.go("login", {
                         'message': 'Logged Out Successfully!'
