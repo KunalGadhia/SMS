@@ -222,8 +222,8 @@ CREATE TABLE `caste` (
 
 LOCK TABLES `caste` WRITE;
 /*!40000 ALTER TABLE `caste` DISABLE KEYS */;
-INSERT INTO `caste` VALUES (1,'Open','open',0),
-(2,'OBC','obc',0);
+INSERT INTO `caste` VALUES (1,'Open','Gujrati',0),
+(2,'OBC','Marathi',0);
 /*!40000 ALTER TABLE `caste` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -250,11 +250,59 @@ CREATE TABLE `profession` (
 
 LOCK TABLES `profession` WRITE;
 /*!40000 ALTER TABLE `profession` DISABLE KEYS */;
-
+INSERT INTO `profession` VALUES (1,'Geometry','Maths',0),
+(2,'Algebra','Maths',0);
 /*!40000 ALTER TABLE `profession` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+
+--
+-- Table structure for table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `name` varchar(100) NOT NULL, 
+  `student_idcard_number` varchar(100) NOT NULL,
+  `gender`  varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.student.gender',
+  `std_code` int(11) DEFAULT NULL ,
+  `landline_number` int(100) DEFAULT NULL,
+  `mobile_number` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `date_of_birth` datetime(6) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `permanent_address` varchar(100)DEFAULT NULL,
+  `current_address` varchar(100)DEFAULT NULL,
+  `living_with` varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.student.livingWith',
+  `caste_id` int(11) NOT NULL,
+  `mother_tongue` varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.student.motherTongue',
+  `religion` varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.student.religion',
+  `photo_path` varchar(100) DEFAULT NULL,
+  `attachments`  varchar(100) DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `student_class_id_idx` (`class_id`),
+  KEY `student_caste_id_idx` (`caste_id`),
+  CONSTRAINT `student_class_id` FOREIGN KEY (`class_id`) REFERENCES `student_class` (`id`),
+  CONSTRAINT `student_caste_id` FOREIGN KEY (`caste_id`) REFERENCES `caste` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=744 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student`
+--
+
+LOCK TABLES `student` WRITE;
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (1,'Amey','AM01','MALE',0712,2323009,'9087787932','amey@gmail.com','2008-03-01',1,'Laxmi Mansion Nagpur','Shyam Sadan Nagpur','UNCLE',1,'MARATHI','HINDU',NULL,NULL,0);
+
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
