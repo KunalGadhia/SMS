@@ -304,6 +304,139 @@ INSERT INTO `student` VALUES (1,'Amey','AM01','MALE',0712,2323009,'9087787932','
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+--
+-- Table structure for table `academics_transaction`
+--
+
+DROP TABLE IF EXISTS `academics_transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `academics_transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `student_id` int(11) NOT NULL, 
+  `subject_id` int(11) NOT NULL,
+  `unit_test_1` float NOT NULL,
+  `unit_test_2` float NOT NULL,
+  `mid_term` float NOT NULL,
+  `unit_test_3` float NOT NULL,
+  `unit_test_4` float NOT NULL,
+  `final_term` float NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `academics_transaction_student_id_idx` (`student_id`),
+  KEY `academics_transaction_subject_id_idx` (`subject_id`),
+  CONSTRAINT `academics_transaction_student_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`),
+  CONSTRAINT `academics_transaction_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=744 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `academics_transaction`
+--
+
+LOCK TABLES `academics_transaction` WRITE;
+/*!40000 ALTER TABLE `academics_transaction` DISABLE KEYS */;
+INSERT INTO `academics_transaction` VALUES (1,1,1,12.5,14.5,70.0,15.0,15.0,75.0,0),
+(2,2,1,14.5,14.5,72.0,15.0,18.0,85.0,0);
+/*!40000 ALTER TABLE `academics_transaction` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
+-- Table structure for table `disciplinary_actions_taken `
+--
+
+DROP TABLE IF EXISTS `disciplinary_actions_taken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `disciplinary_actions_taken` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `student_id` int(11) NOT NULL,
+  `severity` varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.DisciplinaryActionsTaken.severity',
+  `description` varchar(100) DEFAULT NULL,
+  `action_taken`  varchar(100) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `disciplinary_actions_taken_student_id_idx` (`student_id`),
+  CONSTRAINT `disciplinary_actions_taken_student_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=744 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `disciplinary_actions_taken`
+--
+
+LOCK TABLES `disciplinary_actions_taken` WRITE;
+/*!40000 ALTER TABLE `disciplinary_actions_taken` DISABLE KEYS */;
+INSERT INTO `disciplinary_actions_taken` VALUES (1,1,'SERVERTY','desc1','action1',0),
+(2,2,'SERVERTY','desc2','action2',0);
+/*!40000 ALTER TABLE `disciplinary_actions_taken` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Table structure for table `extra_curricular_activity `
+--
+
+DROP TABLE IF EXISTS `extra_curricular_activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `extra_curricular_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `student_id` int(11) NOT NULL,
+  `field_of_interest` varchar(100) DEFAULT NULL ,
+  `description` varchar(100) DEFAULT NULL,
+  `certification`  varchar(100) DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `extra_curricular_activity_student_id_idx` (`student_id`),
+  CONSTRAINT `extra_curricular_activity_student_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=744 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `extra_curricular_activity`
+--
+
+LOCK TABLES `extra_curricular_activity` WRITE;
+/*!40000 ALTER TABLE `extra_curricular_activity` DISABLE KEYS */;
+INSERT INTO `extra_curricular_activity` VALUES (1,1,'Arts','Greeting cards','A+',0),
+(2,2,'Arts','Best from waste','Consolation',0);
+/*!40000 ALTER TABLE `extra_curricular_activity` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
+-- Table structure for table `guardian`
+--
+
+DROP TABLE IF EXISTS `guardian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `guardian` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `student_id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL ,
+  `relation` varchar(100) NOT NULL COMMENT 'JAVA ENUM com.sk.sms.guardian.relation',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `guardian_student_id_idx` (`student_id`),
+  CONSTRAINT `guardian_student_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=744 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guardian`
+--
+
+LOCK TABLES `guardian` WRITE;
+/*!40000 ALTER TABLE `guardian` DISABLE KEYS */;
+INSERT INTO `guardian` VALUES (1,1,'Akshay','FATHER',0),
+(2,2,'Ashwini','MOTHER',0);
+/*!40000 ALTER TABLE `guardian` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
